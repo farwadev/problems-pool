@@ -111,7 +111,6 @@ def problem_9():
 
     # Initialize a variable to hold the sum of odd numbers
     odd_sum = 0
-    #fixme what if user enter odd number  ???
 
     # Get 10 numbers from the user
     for i in range(10):
@@ -125,8 +124,37 @@ def problem_9():
     print("Sum of odd numbers:", odd_sum)
 
 
+def if_user_enter_odd_num():
+    # Initialize a variable to hold the sum of odd numbers
+    odd_sum = 0
+
+    # Get 10 numbers from the user
+    for i in range(10):
+        number = int(input(f"Enter number {i + 1}: "))
+
+        # Check if the number is odd
+        if number % 2 != 0:
+            odd_sum += number
+            print("Odd number detected!")  # Action for odd numbers
+
+    # Print the sum of odd numbers
+    print("Sum of odd numbers:", odd_sum)
+
+
 def problem_10():
-    # fixme what if user enter odd number  ???
+    even_sum = 0
+    count = 0
+    while True:
+        number = int(input(f"Enter number { count + 1}: "))
+        if number % 2 == 0:
+            even_sum += number
+            count +=1
+        else:
+            print("Please Enter even number")
+        if count == 10:
+            break
+
+
     even_sum = 0
 
     # Get the value of n from the user
@@ -139,6 +167,26 @@ def problem_10():
         # Check if the number is even
         if number % 2 == 0:
             even_sum += number
+
+    # Print the sum of even numbers
+    print("Sum of even numbers:", even_sum)
+
+
+def user_enter_odd():
+    even_sum = 0
+
+    # Get the value of n from the user
+    n = int(input("Enter the value of n: "))
+
+    # Get n numbers from the user
+    for i in range(n):
+        number = int(input(f"Enter number {i + 1}: "))
+
+        # Check if the number is even
+        if number % 2 == 0:
+            even_sum += number
+        else:
+            print("Odd number detected!")  # Action for odd numbers
 
     # Print the sum of even numbers
     print("Sum of even numbers:", even_sum)
@@ -220,10 +268,25 @@ def problem_15():
 
 #take three numbers from the user and determine the largest
 def problem_16():
-
-    #fixme do it without max()
     def determine_largest_number(num1, num2, num3):
         largest_num = max(num1, num2, num3)
+        return largest_num
+
+    # Example usage
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    num3 = float(input("Enter the third number: "))
+    largest_number = determine_largest_number(num1, num2, num3)
+    print("The largest number is:", largest_number)
+
+
+def without_max():
+    def determine_largest_number(num1, num2, num3):
+        largest_num = num1
+        if num2 > largest_num:
+            largest_num = num2
+        if num3 > largest_num:
+            largest_num = num3
         return largest_num
 
     # Example usage
@@ -260,17 +323,36 @@ def problem_17():
 
 #using compound composition
 def problem_18():
-    #fixme do it without max()
-        def determine_largest_number_compound(num1, num2, num3, num4):
-            largest_num = max(num1, num2, num3, num4)
-            return largest_num
 
-        num1 = float(input("Enter the first number: "))
-        num2 = float(input("Enter the second number: "))
-        num3 = float(input("Enter the third number: "))
-        num4 = float(input("Enter the third number: "))
-        largest_number_compound = determine_largest_number_compound(num1, num2, num3, num4)
-        print("Largest number using compound conditions:", largest_number_compound)
+    def determine_largest_number_compound(num1, num2, num3, num4):
+        largest_num = max(num1, num2, num3, num4)
+        return largest_num
+
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    num3 = float(input("Enter the third number: "))
+    num4 = float(input("Enter the third number: "))
+    largest_number_compound = determine_largest_number_compound(num1, num2, num3, num4)
+    print("Largest number using compound conditions:", largest_number_compound)
+
+
+def without_max_solve():
+    def determine_largest_number_compound(num1, num2, num3, num4):
+        largest_num = num1
+        if num2 > largest_num:
+            largest_num = num2
+        if num3 > largest_num:
+            largest_num = num3
+        if num4 > largest_num:
+            largest_num = num4
+        return largest_num
+
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    num3 = float(input("Enter the third number: "))
+    num4 = float(input("Enter the fourth number: "))
+    largest_number_compound = determine_largest_number_compound(num1, num2, num3, num4)
+    print("Largest number using compound conditions:", largest_number_compound)
 
 
 #using third approach
@@ -301,24 +383,37 @@ def problem_19():
 def problem_20():
     def calculate_grade(marks):
         if marks >= 90 and marks <= 100:
-         return "A"
+            return "A"
         elif marks >= 80 and marks <= 89:
-         return "B"
+            return "B"
         elif marks >= 70 and marks <= 79:
-         return "C"
+            return "C"
         elif marks >= 60 and marks <= 69:
-         return "D"
+            return "D"
         else:
-         return "F"
+            return "F"
 
-    student_marks = float(input("Enter your marks :"))
+    student_marks = float(input("Enter your marks: "))
     student_grade = calculate_grade(student_marks)
     print("Student Grade:", student_grade)
 
 
 def problem_21():
-    #fixme what if user enter 0 ?
     def check_even_odd(number):
+        if number % 2 == 0:
+            return "Even"
+        else:
+            return "Odd"
+
+    # Example usage:
+    user_number = int(input("Enter a number: "))
+    result = check_even_odd(user_number)
+    print("The number is", result)
+
+
+def user_enter0():
+    def check_even_odd(number):
+
         if number % 2 == 0:
             return "Even"
         else:
@@ -532,6 +627,7 @@ def problem_36():
     def is_prime(n):
         if n <= 1:
             return False
+        # for i in range(2, n):
         for i in range(2, int(n ** 0.5) + 1):
             if n % i == 0:
                 return False
@@ -584,13 +680,16 @@ def problem_38():
 # Display negative of a number
 def problem_39():
     # Get input from the user
-    num = float(input("Enter a number: "))
+        num = float(input("Enter a number: "))
 
-    # Calculate the negative of the number
-    negative_num = -1 * num
+        # Check if the number is already negative
+        if num < 0:
+            print("The negative of", num, "is", negative_num)
+        else:
+            negative_num = -1 * num  # Calculate the negative value
 
-    # Display the negative number
-    print("The negative of", num, "is", negative_num)
+            # Display the negative number
+            print("The negative of", num, "is", negative_num)
 
 
 #  Find absolute of an input. Assume that the absolute operator is not available
@@ -677,6 +776,19 @@ def problem_46():
     print("Reversed number:", reverse_number)
 
 
+def without_list():
+    number = int(input("Enter an integer (up to 4 digits): "))
+    reverse_number = 0
+
+    # Reverse the number using a loop
+    while number > 0:
+        digit = number % 10
+        reverse_number = reverse_number * 10 + digit
+        number = number // 10
+
+    print("Reversed number:", reverse_number)
+
+
 # Interchange two numbers
 def problem_47():
     a = int(input("Enter the first number (a): "))
@@ -708,9 +820,10 @@ def problem_48():
 # Multiply a number with the sum of its digits
 def problem_49():
     number = int(input("Enter a number: "))
-
+    # this will take input from the user
     # Calculate the sum of digits
     digit_sum = sum(int(digit) for digit in str(number))
+    # this will count the digits in the number and sum that
 
     # Multiply the number with the sum of digits
     result = number * digit_sum
@@ -801,6 +914,7 @@ def problem_55():
 
 # Input numbers till user inputs a zero and display the largest number
 def problem_56():
+
     numbers = []
     num = int(input("Enter a number (or 0 to stop): "))
 
@@ -809,7 +923,10 @@ def problem_56():
         num = int(input("Enter a number (or 0 to stop): "))
 
     if numbers:
-        max_num = max(numbers)
+        max_num = numbers[0]
+        for number in numbers:
+            if number > max_num:
+                max_num = number
         print("Largest number:", max_num)
     else:
         print("No numbers were entered.")
@@ -817,6 +934,7 @@ def problem_56():
 
 # Input numbers till user inputs a zero, and display the smallest number
 def problem_57():
+
     numbers = []
     num = int(input("Enter a number (or 0 to stop): "))
 
@@ -825,7 +943,10 @@ def problem_57():
         num = int(input("Enter a number (or 0 to stop): "))
 
     if numbers:
-        min_num = min(numbers)
+        min_num = numbers[0]
+        for number in numbers:
+            if number < min_num:
+                min_num = number
         print("Smallest number:", min_num)
     else:
         print("No numbers were entered.")
@@ -852,13 +973,20 @@ def problem_58():
 
 # Input 10 numbers, and display the smallest number
 def problem_59():
+
     numbers = []
     for _ in range(10):
         num = int(input("Enter a number: "))
         numbers.append(num)
 
-    min_num = min(numbers)
-    print("Smallest number:", min_num)
+    if numbers:
+        min_num = numbers[0]
+        for number in numbers:
+            if number < min_num:
+                min_num = number
+        print("Smallest number:", min_num)
+    else:
+        print("No numbers were entered.")
 
 
 # Input 10 numbers, and display count of even and odd numbers, separately, at the
@@ -906,12 +1034,17 @@ def problem_62():
 
 # Input 2 numbers and find their GCD
 def problem_63():
-    import math
-
     num1 = int(input("Enter the first number: "))
     num2 = int(input("Enter the second number: "))
+    if num1 < num2:
+        num1, num2 = num2, num1
 
-    gcd = math.gcd(num1, num2)
+    while num2 != 0:
+        remainder = num1 % num2
+        num1 = num2
+        num2 = remainder
+
+    gcd = num1
     print("GCD:", gcd)
 
 
@@ -923,6 +1056,27 @@ def problem_64():
     num2 = int(input("Enter the second number: "))
 
     lcm = abs(num1 * num2) // math.gcd(num1, num2)
+    print("LCM:", lcm)
+
+
+def without_lcm():
+
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+
+    # Ensure num1 is greater than or equal to num2
+    if num1 < num2:
+        num1, num2 = num2, num1
+
+    def calculate_gcd(a, b):
+        while b != 0:
+            remainder = a % b
+            a = b
+            b = remainder
+        return a
+
+    gcd = calculate_gcd(num1, num2)
+    lcm = abs(num1 * num2) // gcd
     print("LCM:", lcm)
 
 
@@ -1166,7 +1320,7 @@ if __name__ == "__main__":
     # problem_46()
     # problem_47()
     # problem_48()
-    # problem_49()
+    problem_49()
     # problem_50()
     # problem_51()
     # problem_52()
@@ -1191,7 +1345,12 @@ if __name__ == "__main__":
     # problem_71()
     # problem_72()
     # problem_73()
-    problem_74()
+    # problem_74()
+    # if_user_enter_odd_num()
+    # without_max()
+    # user_enter0()
+    # user_enter_odd()
+    # without_list()
+    without_lcm()
 
-
-
+    
